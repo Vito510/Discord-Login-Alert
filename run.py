@@ -2,6 +2,7 @@
 import sys
 import datetime
 import json
+import os
 
 import discord
 from notifypy import Notify
@@ -15,12 +16,20 @@ notif = Notify()
 def log(user):
     """Logs user log in time"""
 
+    #Check if file exists, if not create it
+    if not os.path.isfile('log.json'):
+        with open('log.json', 'w') as f:
+            json.dump([], f)
+
+    #Read file
     with open("log.json", "r", encoding='utf-8') as file:
         data = json.load(file)
+
 
     jsn = {"user": user, "time": datetime.datetime.now().strftime("%H:%M:%S")}
     data.append(jsn)
 
+    #Write to file
     with open("log.json", "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
 
@@ -49,4 +58,4 @@ async def on_ready():
     else:
         print("Waiting for user:",uname)
 
-client.run('YOUR_TOKEN')
+client.run('ODg5OTU4Mjg1NDIyMjY0MzQw.GKBQn1.tamCdEH5LXiq9pQchqBcS8IsdkCAkadqmOPvwU')
