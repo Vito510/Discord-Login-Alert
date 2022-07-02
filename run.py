@@ -58,4 +58,4 @@ async def on_ready():
     else:
         print("Waiting for user:",uname)
 
-client.run('ODg5OTU4Mjg1NDIyMjY0MzQw.GKBQn1.tamCdEH5LXiq9pQchqBcS8IsdkCAkadqmOPvwU')
+client.run('YOUR_TOKEN_HERE')
